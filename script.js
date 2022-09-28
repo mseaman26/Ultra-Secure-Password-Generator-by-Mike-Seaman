@@ -22,7 +22,7 @@ var upperCaseArray = lowerCaseArray.map(element =>{
   return element.toUpperCase()
 })
 var numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-//
+//again, I manually wrote out this array.  It didn't take that long, but required a little bit of cleverness regarding some characters that affect strings
 var specialCharsArray = [" ","!",`"`,"#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"]
 //initializing the array that the password will be choosing characters from.  It will eventually be an array of arrays
 var passwordArray = []              
@@ -119,11 +119,13 @@ function writePassword() {
   getAndValidatePaswordLength()
   verifyPasswordChars()
   password= generatePassword();
+  //this line was provided by my istructor(s)
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
+  //re-initializes the password variable
   password = ''
 }
 
 // Add event listener to generate button
-//clicking the button will be what executes all the code written above by calling writePassword
+//clicking the button will be what executes all the code written above by calling writePassword. It is technically the only function that called by the user (as opposed to being called by another function)
 generateBtn.addEventListener("click", writePassword);
