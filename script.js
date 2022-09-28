@@ -114,19 +114,16 @@ function chooseChar(){
   
 }
 // Write password to the #password input
-function writePassword() {
-  
-  ///present series of prompts
-    //prompt length question (8-128) and check to make sure lengh is valid
-getAndValidatePaswordLength()
-verifyPasswordChars()
-// generatePassword()
-password= generatePassword();
-var passwordText = document.querySelector("#password");
-
-passwordText.value = password;
-password = ''
+//below is where all our fun code gets executed and eventually the password is displayed in the browser using the pre-written code
+function writePassword() { 
+  getAndValidatePaswordLength()
+  verifyPasswordChars()
+  password= generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+  password = ''
 }
 
 // Add event listener to generate button
+//clicking the button will be what executes all the code written above by calling writePassword
 generateBtn.addEventListener("click", writePassword);
