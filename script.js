@@ -24,12 +24,14 @@ var passwordArray = []
 function getAndValidifyPasswordLength(){ 
  
     passwordLength = (prompt("plase select a password length.  It must be between 8 and 128 characters long")) 
+    // In order to make distinct prompts for when the user types nothing and for when the user types a non-number, 
+    // I had to make a separate parsed variable.  At least, that was what worked for me
     parsedPasswordLength = parseInt(passwordLength)
     if(!passwordLength){
       alert("You didn't type anything.  Try again. Type a length for your password that is between 8 and 128")
       writePassword()
     } else if(isNaN(parsedPasswordLength)){
-      alert("the length has got to be a number. Try again, make sure it's between 8 and")
+      alert("the length must be a number. Try again, make sure it's between 8 and 128")
       getAndValidifyPasswordLength()
     }else if (parsedPasswordLength < 8 || parsedPasswordLength > 128) {
       alert("password must be between 8 and 128 characters")
