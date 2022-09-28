@@ -16,12 +16,12 @@ var upperCaseArray = lowerCaseArray.map(element =>{
 var numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 //
 var specialCharsArray = [" ","!",`"`,"#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"]
-
-var passwordArray = []
+//initializing the array that the password will be choosing characters from.  It will eventually be an array of arrays
+var passwordArray = []              
 //function declarations
 
-//Yes I'm aware that I wrote "Validify" in the funtion title.  Oh well
-function getAndValidifyPasswordLength(){ 
+//Yes I'm aware that I wrote "Validify" in the funtion title.  Oh well.  I would like to chane this to 
+function getAndValidatePaswordLength(){ 
  
     passwordLength = (prompt("plase select a password length.  It must be between 8 and 128 characters long")) 
     // In order to make distinct prompts for when the user types nothing and for when the user types a non-number, 
@@ -29,13 +29,13 @@ function getAndValidifyPasswordLength(){
     parsedPasswordLength = parseInt(passwordLength)
     if(!passwordLength){
       alert("You didn't type anything.  Try again. Type a length for your password that is between 8 and 128")
-      writePassword()
+      getAndValidatePaswordLength()
     } else if(isNaN(parsedPasswordLength)){
       alert("the length must be a number. Try again, make sure it's between 8 and 128")
-      getAndValidifyPasswordLength()
+      getAndValidatePaswordLength()
     }else if (parsedPasswordLength < 8 || parsedPasswordLength > 128) {
       alert("password must be between 8 and 128 characters")
-      getAndValidifyPasswordLength()
+      getAndValidatePaswordLength()
     }
   
 }
@@ -96,14 +96,9 @@ function writePassword() {
   
   ///present series of prompts
     //prompt length question (8-128) and check to make sure lengh is valid
-getAndValidifyPasswordLength()
+getAndValidatePaswordLength()
 verifyPasswordChars()
 // generatePassword()
-
-// chooseChar()
-// for(1 = 0; 1 < 20; i++){
-//   chooseChar()
-// }
 password= generatePassword();
 var passwordText = document.querySelector("#password");
 
