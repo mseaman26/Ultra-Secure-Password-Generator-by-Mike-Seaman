@@ -32,13 +32,13 @@ var passwordArray = []
 // I added prompts specifically for when the user types nothing, types, a non-number, or types a number that is outside the password length range
 function getAndValidatePaswordLength(){ 
     //store the user response to the length prompt into a variable
-    passwordLength = (prompt("plase select a password length.  It must be between 8 and 128 characters long")) 
+    passwordLength = (prompt("Please select a password length.  It must be between 8 and 128 characters long")) 
     // In order to make distinct prompts for when the user types nothing and for when the user types a non-number, 
     // I had to make a separate parsed variable.  At least, that was what worked for me
     parsedPasswordLength = parseInt(passwordLength)
     //If the user types nothing at all
     if(!passwordLength){
-      alert("You didn't type anything.  Try again. Type a length for your password that is between 8 and 128")
+      alert("You didn't type anything. Try again. Type a length for your password that is between 8 and 128")
       //takes the user back to the beginning of the function if their length choice is invalid
       getAndValidatePaswordLength()
       //if the user types a non-number
@@ -106,9 +106,7 @@ function makePasswordArray() {
 }
 //this function chooses each individual character in the password.  I wanted to give equal weight to each available character category, so that the password wouldn't be dominated by the categories that have longer arrays, such as "special characters"
 function chooseChar(arr){
-  //declares a local variable for this particular password
-  
-  //This line selects an index in passwordArray, which refers to another array nested inside.  These nested arrays represent character categories. A random category is selected by generating a random number that corresponds to the indexes of passwordArray
+  //This line selects an index in passwordArray (which is a variable that exists in the generatePassword function), which will refer to another array nested inside.  These nested arrays represent character categories. A random category is selected by generating a random number that corresponds to the indexes of passwordArray
   var charCategory = Math.floor(Math.random()*arr.length);
   // This was the hardest line of code for me to write in this project.  It takes the selected category number and uses it as an index in passwordArray.  Then another random number is generated to select a character within that nested array
   var char = arr[charCategory][Math.floor(Math.random()*(arr[charCategory].length))];
