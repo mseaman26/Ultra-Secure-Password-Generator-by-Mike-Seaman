@@ -124,6 +124,7 @@ function writePassword() {
   passwordText.value = password;
   //re-initializes the password variable
   password = ''
+  passwordLength = 0;
 }
 
 // Add event listener to generate button
