@@ -79,9 +79,10 @@ function verifyPasswordChars(){
 }
 //now that we have the info we need to make a valid password, we begin!
 function generatePassword(){
+  passwordArray = makePasswordArray()
   for(var i = 0; i < passwordLength; i++){
     //"chooseChar" chooses a character from the available character categories. It is declared below
-    password = password+chooseChar()
+    password = password+chooseChar(passwordArray)
   }
   return password
 }
@@ -104,13 +105,13 @@ function makePasswordArray() {
 
 }
 //this function chooses each individual character in the password.  I wanted to give equal weight to each available character category, so that the password wouldn't be dominated by the categories that have longer arrays, such as "special characters"
-function chooseChar(){
+function chooseChar(arr){
   //declares a local variable for this particular password
-  var passwordArray = makePasswordArray()
+  
   //This line selects an index in passwordArray, which refers to another array nested inside.  These nested arrays represent character categories. A random category is selected by generating a random number that corresponds to the indexes of passwordArray
-  var charCategory = Math.floor(Math.random()*passwordArray.length);
+  var charCategory = Math.floor(Math.random()*arr.length);
   // This was the hardest line of code for me to write in this project.  It takes the selected category number and uses it as an index in passwordArray.  Then another random number is generated to select a character within that nested array
-  var char = passwordArray[charCategory][Math.floor(Math.random()*(passwordArray[charCategory].length))];
+  var char = arr[charCategory][Math.floor(Math.random()*(arr[charCategory].length))];
   return(char);
   
 }
