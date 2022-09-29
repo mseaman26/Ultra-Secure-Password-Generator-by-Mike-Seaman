@@ -22,15 +22,16 @@ var upperCaseArray = lowerCaseArray.map(element =>{
   return element.toUpperCase()
 })
 var numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-//again, I manually wrote out this array.  It didn't take that long, but required a little bit of cleverness regarding some characters that affect strings
+//again, I manually wrote out this array.  It didn't take that long, but required a little bit of cleverness regarding some characters that affect the quotes
 var specialCharsArray = [" ","!",`"`,"#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"]
 //initializing the array that the password will be choosing characters from.  It will eventually be an array of arrays
 var passwordArray = []              
 //function declarations
 
 // This is the function that takes the user through the prompts that will lead to a valid password length being chosen
+// I added prompts specifically for when the user types nothing, types, a non-number, or types a number that is outside the password length range
 function getAndValidatePaswordLength(){ 
- 
+    //store the user response to the length prompt into a variable
     passwordLength = (prompt("plase select a password length.  It must be between 8 and 128 characters long")) 
     // In order to make distinct prompts for when the user types nothing and for when the user types a non-number, 
     // I had to make a separate parsed variable.  At least, that was what worked for me

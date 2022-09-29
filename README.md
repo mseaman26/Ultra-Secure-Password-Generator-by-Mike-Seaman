@@ -19,7 +19,7 @@ This project was entirely worked on in javascript.  There was some starter HTML 
 
 ## Notable Methods
 - Function declarations and calls
-- Global and local variable
+- Global and local variables
 - If/then statements
 - "for" loops
 - Work with arrays including methods and nested arrays
