@@ -1,11 +1,10 @@
 
-  //This line selects an index in passwordArray, which will refer to another array 
 # Ultra-Secure-Password-Generator-by-Mike-Seaman
 
 This project is an application that generates a random password that fulfills certain criteria selected by the user.  The user simply clicks the big red button and follows the instructions in the following prompts to generate their password!  First they are asked to choose a valid password length.  Then the user chooses at least one of the following character categories for their password: lower-case letters, upper-case letters, numbers, and special characters. This was a fun and challenging project, working entirely within a JavaScript file.  
 
-## Screen shot of the application
-<img src="./assets/password generator.png" width=400px>
+## Video of the application
+<img src="./assets/PW_Gen.gif" width=800px alt="gif of a demonstration of the password generator app">
 
 ## Link to the deployed application
 https://mseaman26.github.io/Ultra-Secure-Password-Generator-by-Mike-Seaman/
