@@ -27,7 +27,7 @@ This project was entirely worked on in javascript.  There was some starter HTML 
 - Work with arrays including methods and nested arrays
 
 ## My favorite part of my code in this project
-The function for selecting each character in the password was a fun little puzzle.  It's a short function, but I like it. It's kind of the heart of this whole project. This involved an array containing more arrays (which is the argument "arr" in this case), choosing characters from arrays that were within a larger array, each representing a category of characters that is allowed by the user to be in the password.  The line where the variable "char" is defined required me to use a pen and paper.
+The function for selecting each character in the password was a fun little puzzle.  It's a short function, but I like it. It's kind of the heart of this whole project. This involved an array containing more arrays (which is the argument "arr" in this case). It involved choosing characters from the nested arrays, each representing a category of characters that is allowed by the user to be in the password.  The line where the variable "char" is defined (line 36)required me to use a pen and paper.
 ```Javascript
 function chooseChar(arr){
   //This line selects an index in passwordArray (which is a variable that exists in the generatePassword function), which will refer to another array nested inside.  These nested arrays represent character categories. A random category is selected by generating a random number that corresponds to the indexes of passwordArray
