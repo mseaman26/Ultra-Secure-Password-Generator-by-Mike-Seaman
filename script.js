@@ -35,7 +35,7 @@ function getAndValidatePaswordLength(){
     passwordLength = (prompt("Please select a password length.  It must be between 8 and 128 characters long")) 
     // In order to make distinct prompts for when the user types nothing and for when the user types a non-number, 
     // I had to make a separate parsed variable.  At least, that was what worked for me
-    parsedPasswordLength = parseInt(passwordLength)
+    var parsedPasswordLength = parseInt(passwordLength)
     //If the user types nothing at all
     if(!passwordLength){
       alert("You didn't type anything. Try again. Type a length for your password that is between 8 and 128")

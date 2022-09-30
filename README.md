@@ -26,7 +26,7 @@ This project was entirely worked on in javascript.  There was some starter HTML 
 - Work with arrays including methods and nested arrays
 
 ## My favorite part of my code in this project
-The function for selecting each character in the password was a fun little puzzle.  It's a short function, but I like it. It's kind of the heart of this whole project. This involved an array containing more arrays (which is the argument "arr" in this case). It involved choosing characters from the nested arrays, each representing a category of characters that is allowed by the user to be in the password.  The line where the variable "char" is defined (line 36)required me to use a pen and paper.
+The function for selecting each character in the password was a fun little puzzle.  It's a short function, but I like it. It's kind of the heart of this whole project. This involved an array containing more arrays (which is the argument "arr" in this case). It involved choosing characters from the nested arrays, each representing a category of characters that is allowed by the user to be in the password.  The line where the variable "char" is defined required me to use a pen and paper.
 ```Javascript
 function chooseChar(arr){
   //This line selects an index in passwordArray (which is a variable that exists in the generatePassword function), which will refer to another array nested inside.  These nested arrays represent character categories. A random category is selected by generating a random number that corresponds to the indexes of passwordArray
@@ -46,13 +46,13 @@ The way I used the parseInt function was strange, but it was the only thing that
 ```JavaScript
 function getAndValidatePaswordLength(){ 
     //store the user response to the length prompt into a variable
-    passwordLength = (prompt("plase select a password length.  It must be between 8 and 128 characters long")) 
+    passwordLength = (prompt("Please select a password length.  It must be between 8 and 128 characters long")) 
     // In order to make distinct prompts for when the user types nothing and for when the user types a non-number, 
     // I had to make a separate parsed variable.  At least, that was what worked for me
-    parsedPasswordLength = parseInt(passwordLength)
+    var parsedPasswordLength = parseInt(passwordLength)
     //If the user types nothing at all
     if(!passwordLength){
-      alert("You didn't type anything.  Try again. Type a length for your password that is between 8 and 128")
+      alert("You didn't type anything. Try again. Type a length for your password that is between 8 and 128")
       //takes the user back to the beginning of the function if their length choice is invalid
       getAndValidatePaswordLength()
       //if the user types a non-number
@@ -74,6 +74,7 @@ There was a TON of learning during the completion of this project.  Some key lea
 - Typing pseudo code into VS code using comments, as well as using a pen and paper at times
 - All kinds of JavaScript and programming logic, such as variables, scope, function declarations and calls, many methods, and more
 - I learned to detect when it's a good time to take a break and I learned that the solution can suddenly pop out at you after a healthy break
-- became reaquainted with the satisfaction of making a program work!
+- became reacquainted with the satisfaction of making a program work!
 
 ## By Mike Seaman
+
