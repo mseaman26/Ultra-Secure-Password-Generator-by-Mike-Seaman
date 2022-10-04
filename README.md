@@ -1,80 +1,62 @@
+# Timed-JavaScript-Multiple-Choice-Quiz-Gauntlet
+This program takes the user through a multiple-choice quiz on the topic of JavaScript.  The quiz not only features questions, but also a timer, making the quiz more pressure-inducing. Wrong answers are extra punishing because not only do they lower the user's percentage, but they take time off the timer as well!  To make things more intense, the time remaining at the end is factored in by being multiplied by the percentage that the user scored on the questions.  After the quiz.  The user submits their name and their score is logged on the scoreboard for all to see
 
-# Ultra-Secure-Password-Generator-by-Mike-Seaman
+## Video of the Application
+<img src="./assets/Images/Quiz.gif">
 
-This project is an application that generates a random password that fulfills certain criteria selected by the user.  The user simply clicks the big red button and follows the instructions in the following prompts to generate their password!  First they are asked to choose a valid password length.  Then the user chooses at least one of the following character categories for their password: lower-case letters, upper-case letters, numbers, and special characters. After that, their password is displayed on the screen! This was a fun and challenging project, working entirely within a JavaScript file.  
+## Link to the Deployed Application
+https://mseaman26.github.io/Timed-JavaScript-Multiple-Choice-Quiz-Gauntlet/
 
-## Video of the application
-<img src="./assets/PW_Gen.gif" width=800px alt="gif of a demonstration of the password generator app">
-
-## Link to the deployed application
-https://mseaman26.github.io/Ultra-Secure-Password-Generator-by-Mike-Seaman/
-
-## Languages used
-This project was entirely worked on in javascript.  There was some starter HTML and CSS code (as well as some starter code in JS). 
+## Languages Used
+The primary language of focus for this project was JavaScript, but there was also a significant amount of work with HTML and CSS
 
 ## Notable Features
-- A button listener
-- Alerts, Confirms, and Prompts
-- Generation of randomized data that adheres to parameters set by the user
-- password generation that gives theoretically equal representation to the character categories selected by the user.
+-Web API functionality, including DOM traversal, dynamic creation and removal of elements, local storage, and more
+-A timer, utilizing the setInterval() method
+-Use of objects and their associated key/value pairs, including storing and accessing them to and from local storage using JSON.stringify
+-multiple elements being associated with event listeners, including a text area and submit button, requiring the preventDefault() method
 
-## Notable Methods
-- Function declarations and calls
-- Global and local variables
-- If/then statements
-- "for" loops
-- Work with arrays including methods and nested arrays
+## Notable methods
+-Utilizing local storage to keep a scoreboard that persists, even if the browser has been quit 
+-accessing elements with getElementbyId and other similar methods
+-creating the illusion of multiple pages by hiding and displaying content dynamically
+-Keeping the app built in such a way that if certain aspects changed, such as the number of questions on the quiz or the number of choices in the questions, the app would still function smoothly
 
-## My favorite part of my code in this project
-The function for selecting each character in the password was a fun little puzzle.  It's a short function, but I like it. It's kind of the heart of this whole project. This involved an array containing more arrays (which is the argument "arr" in this case). It involved choosing characters from the nested arrays, each representing a category of characters that is allowed by the user to be in the password.  The line where the variable "char" is defined required me to use a pen and paper.
-```Javascript
-function chooseChar(arr){
-  //This line selects an index in passwordArray (which is a variable that exists in the generatePassword function), which will refer to another array nested inside.  These nested arrays represent character categories. A random category is selected by generating a random number that corresponds to the indexes of passwordArray
-  var charCategory = Math.floor(Math.random()*arr.length);
-  // This was the hardest line of code for me to write in this project.  It takes the selected category number and uses it as an index in passwordArray.  Then another random number is generated to select a character within that nested array
-  var char = arr[charCategory][Math.floor(Math.random()*(arr[charCategory].length))];
-  return(char);
-  
-}
-```
-## Another section of code that was interesting to me
-I decided to create separate alerts for different scenarios when the user is inputting their desired password length.  These included: 
-- the user types nothing at all
-- the user types something that isn't a number
-- the user types a number, but it isn't within the range required for a valid password length
-The way I used the parseInt function was strange, but it was the only thing that worked for me at the time
-```JavaScript
-function getAndValidatePaswordLength(){ 
-    //store the user response to the length prompt into a variable
-    passwordLength = (prompt("Please select a password length.  It must be between 8 and 128 characters long")) 
-    // In order to make distinct prompts for when the user types nothing and for when the user types a non-number, 
-    // I had to make a separate parsed variable.  At least, that was what worked for me
-    var parsedPasswordLength = parseInt(passwordLength)
-    //If the user types nothing at all
-    if(!passwordLength){
-      alert("You didn't type anything. Try again. Type a length for your password that is between 8 and 128")
-      //takes the user back to the beginning of the function if their length choice is invalid
-      getAndValidatePaswordLength()
-      //if the user types a non-number
-    } else if(isNaN(parsedPasswordLength)){
-      alert("the length must be a number. Try again, make sure it's between 8 and 128")
-      getAndValidatePaswordLength()
-      //if the user types a number that is outside the desired range
-    }else if (parsedPasswordLength < 8 || parsedPasswordLength > 128) {
-      alert("password must be between 8 and 128 characters")
-      getAndValidatePaswordLength()
+## Favorite parts of my JS code
+I like this function because it's short, but it does a lot.  It parses all the scores from local storage and stores them into an array to be displayed on the scoreboard!
+```javascript
+function getScoreBoard(){
+    var scores = []
+    for(i = 0; localStorage.getItem("score"+i) != null;i++){
+        scores.push(JSON.parse(localStorage.getItem("score"+i)))
     }
-  
+    return scores
 }
 ```
-
-##Learning points from this project
-There was a TON of learning during the completion of this project.  Some key learning points included
-- Learning to keep code as organized as possible throughout the process
-- Typing pseudo code into VS code using comments, as well as using a pen and paper at times
-- All kinds of JavaScript and programming logic, such as variables, scope, function declarations and calls, many methods, and more
-- I learned to detect when it's a good time to take a break and I learned that the solution can suddenly pop out at you after a healthy break
-- became reacquainted with the satisfaction of making a program work!
+I also find something satisfying about the objects themselves.  Here are two of the questions in the quiz, stored as objects in an array
+```javascript
+{question:"What year was JavaScript created?",
+    choices:[
+        1994,
+        1995,
+        1998,
+        1999
+    ],
+    correctAnswer: 1
+    },
+    {
+    question:"True or False: a variable declared inside a function declaration can be used anywhere by any other function",
+    choices:[
+        "True",
+        "False"
+    ],
+    correctAnswer: 1
+    },
+```
+## Learning points from this project
+- The main learning point for this project is that, going forward, I need to slow down and take a look at the broad structure of what I'm trying to build.  In this project, I approached it a bit hastily and perhaps urgently. I would celebrate by victories, but compromising the neatness of my code made achieving those victories more difficult
+- I Learned what a web API is and many other learning points associated with that
+- Learned many new nuances to web development such as event behavior, object functionality and more
+- I learned that temperament matters when approaching a coding project
 
 ## By Mike Seaman
-
